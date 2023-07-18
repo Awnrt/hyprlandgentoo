@@ -1,0 +1,18 @@
+gui-wm/hyprpaper ** # wallpaper manager for hyprland
+net-p2p/qbittorrent ** # only live version supports wayland
+gui-libs/xdg-desktop-portal-hyprland ** # desktop portal implementation
+
+# Wayland related #
+dev-libs/libinput ** 
+dev-libs/wayland **
+dev-libs/wayland-protocols **
+dev-util/wayland-scanner **
+media-libs/mesa **
+media-libs/libdisplay-info **
+x11-libs/libdrm **
+x11-libs/libxkbcommon **
+x11-libs/pixman **
+
+# Rust 1.7 is masked and it's needed for Firefox #
+virtual/rust **
+dev-lang/rust **
