@@ -669,6 +669,7 @@ rm -rf /var/cache/binpkgs/*
 # NOT COPY AND PASTE THIS COMMAND:
 
 Example: efibootmgr -c -d /dev/nvme0n1 -p 1 -L "GENTOO" -l '\EFI\BOOT\BOOTX64.EFI'
+efibootmgr -c -d /dev/nvme0n1 -p 5 -L "GENTOO" -l '\EFI\BOOT\BOOTX64.EFI' --unicode 'iommu=pt intel_iommu=on'
 
 # Explanation
 
