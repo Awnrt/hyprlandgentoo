@@ -75,7 +75,7 @@ pkg_setup() {
 src_prepare() {
 	if use video_cards_nvidia; then
 		cd "${S}/subprojects/wlroots" || die
-		eapply "${FILESDIR}/nvidia-0.25.0.patch"
+		eapply "${FILESDIR}/nvidia-9999.patch"
 		cd "${S}" || die
 	fi
 
