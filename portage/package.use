@@ -9,7 +9,7 @@ app-arch/xz-utils extra-filters	# needed for kernel
 sys-firmware/intel-microcode split-ucode # needed for microcode
 sys-kernel/linux-firmware savedconfig redistributable compress-xz # needed for nvidia-firmware
 sys-kernel/gentoo-sources symlink experimental # needed to optimize for our cpu
-media-video/pipewire pipewire-alsa sound-server # needed for sound to work
+media-video/pipewire pipewire-alsa sound-server bluetooth dbus # needed for sound to work
 sys-auth/seatd server # for wayland login
 sys-apps/util-linux su pam suid # for root login
 x11-drivers/nvidia-drivers driver modules static-libs # all of them needed
@@ -17,9 +17,40 @@ sys-fs/ntfs3g fuse mount-ntfs # for external hdd
 sys-fs/fuse suid
 net-misc/curl http2 ssl openssl curl_ssl_openssl # for git sync
 dev-vcs/git curl # for git sync
-sys-apps/systemd-utils tmpfiles # dependency
+sys-apps/systemd-utils tmpfiles udev # dependency
 dev-libs/glib mime # not recommended to disable by package
 dev-lang/python ensurepip ssl sqlite ncurses # needed as dependency
+
+# WAYBAR
+gui-apps/waybar experimental tray
+dev-cpp/cairomm X
+dev-libs/libdbusmenu gtk3
+
+# QEMU
+app-emulation/qemu gtk ncurses sdl spice usbredir pipewire udev usb vhost-net fdt seccomp numa
+app-emulation/qemu qemu_softmmu_targets_arm qemu_softmmu_targets_x86_64 qemu_softmmu_targets_sparc
+app-emulation/qemu qemu_user_targets_x86_64
+sys-firmware/ipxe qemu
+
+# LIBVIRT
+app-emulation/libvirt pcap virt-network numa fuse macvtap vepa qemu libvirtd udev
+net-dns/dnsmasq script ipv6 dhcp
+sys-apps/iproute2 -minimal
+dev-libs/nettle gmp
+
+# VIRT-MANAGER
+app-emulation/virt-manager gui
+app-emulation/libvirt-glib introspection
+sys-libs/libosinfo introspection
+net-libs/gtk-vnc introspection
+net-misc/spice-gtk usbredir gtk3 introspection
+sys-apps/dbus X
+x11-libs/gtksourceview introspection
+x11-libs/vte introspection
+media-libs/gstreamer introspection
+
+# BLUETOOTH
+net-wireless/bluez readline udev
 
 # DEFAULT APPS (these are default apps for Gentoo)#
 app-alternatives/awk gawk
@@ -37,7 +68,7 @@ media-libs/freetype adobe-cff cleartype-hinting harfbuzz truetype png
 media-libs/harfbuzz glib icu truetype cairo graphite introspection
 
 # CLANG ENVIRONMENT (needed for compiling firefox or other PGO programs) #
-sys-devel/clang-runtime compiler-rt sanitize
+sys-devel/clang-runtime compiler-rt #sanitize
 sys-devel/clang-common default-compiler-rt default-lld
 sys-libs/compiler-rt-sanitizers profile orc
 sys-libs/libunwind static-libs
@@ -76,7 +107,7 @@ net-vpn/openvpn openssl
 mail-client/neomutt notmuch sasl
 net-mail/isync ssl
 sys-auth/polkit kde daemon # without these you can't build kde apps or breeze
-x11-libs/gtk+ X introspection
+x11-libs/gtk+ -X introspection
 dev-libs/libpcre2 unicode pcre16
 
 # all of qt packages are needed for hyprland and xdg-portal #
