@@ -481,6 +481,9 @@ echo "root:$password" | chpasswd
 
 # Change the system clock to local clock.
 
+# !!!! AFTER THIS:
+# hwclock --hctosys --utc
+
 sed -i 's/clock=.*/clock=\"local\"/g' /etc/conf.d/hwclock
 
 # (Optional) Change DNS server to Quad9.
