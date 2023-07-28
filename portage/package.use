@@ -20,6 +20,7 @@ dev-vcs/git curl # for git sync
 sys-apps/systemd-utils tmpfiles udev # dependency
 dev-libs/glib mime # not recommended to disable by package
 dev-lang/python ensurepip ssl sqlite ncurses # needed as dependency
+sys-apps/net-tools hostname #for hostname working
 
 # WAYBAR
 gui-apps/waybar experimental tray
